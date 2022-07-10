@@ -1,0 +1,18 @@
+01 N product1 user1  painting 150.00
+02 N product2 user1  painting 120.00
+03 N product3 user2  book      20.00
+04 N product4 user2  book      39.50
+05 S
+06 B product1 user3  151.00
+07 B product1 user4  152.00
+08 B product1 user3  153.00
+09 B product1 user4  154.00
+10 B product1 user3  155.00
+11 B product1 user4  156.00
+12 S
+13 B product2 user2  125.00
+14 S
+15 B product3 user1  25.00
+16 S
+17 I
+18 S
