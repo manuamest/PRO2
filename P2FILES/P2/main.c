@@ -249,6 +249,45 @@ void Remove (tList *L) {
     }
 }
 
+float averageBids(tList L) {
+    tPosL pos = first(L);
+    tItemL product;
+    float avg, n = 1, bids = 0;
+    while (pos != NULL) {
+        product = getItem(pos, L);
+        bids += (float) product.bidCounter;
+        pos = next(pos, L);
+        n++;
+    }
+    avg = bids/n;
+    return avg;
+}
+
+void InvalidateBids (tList *L) {
+    if (isEmptyList(*L)) {
+        printf("+ Error: InvalidateBids not possible\n");
+    } else {
+        tItemL producto;
+        tPosL pos = first(*L);
+        float avg = averageBids(*L);
+        int productsInvalidated = 0;
+        while (pos != NULL) {
+            producto = getItem(pos, *L);
+            if ((float)producto.bidCounter >= (avg+2)) {
+                printf("Removing product %s seller %s category %s price %.2f bids %d average bids %f\n",
+                       producto.productId, producto.seller, Categoria(producto), producto.productPrice, producto.bidCounter, avg);
+                productsInvalidated++;
+                while (!isEmptyStack(producto.bidStack)) {
+                    pop(&producto.bidStack);
+                }
+            }
+            pos = next(pos, *L);
+        }
+        if (productsInvalidated == 0) {
+            printf("+ Error: InvalidateBids not possible\n");
+        }
+    }
+}
 void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
     printf("********************\n");
     switch (command) {
@@ -281,9 +320,9 @@ void processCommand(char *commandNumber, char command, char *param1, char *param
             printf("%s %c\n", commandNumber, command);
             Remove(L);
             break;
-        case 'T':
-            Tgr(L);
-            break;
+        case 'I':
+            printf("%s %c\n", commandNumber, command);
+            InvalidateBids(L);
         default:
             break;
     }
