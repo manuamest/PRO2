@@ -1,0 +1,5 @@
+# ninja log v5
+1	795	1649346049558891832	CMakeFiles/main.dir/bid_stack.c.o	9ee9eacc866009bc
+1	727	1649176145501226161	CMakeFiles/main.dir/product_list.c.o	2281c75b69f8e0ff
+797	1109	1649346049870892502	../bin/main	e6de0c4d28bb657c
+1	797	1649346049562891840	CMakeFiles/main.dir/main.c.o	c4811027439c579e

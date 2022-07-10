@@ -1,0 +1,12 @@
+# ninja log v5
+47	1027	1651759024686634902	CMakeFiles/main.dir/bid_stack.c.o	fe49035334c025e3
+38	64	1648744028390837657	../bin/test_bid_stack	919b83909a4e247
+1	47	1651760882593895553	CMakeFiles/main.dir/product_list.c.o	a4cda501dd3843b8
+45	71	1648743972238565291	../bin/test_product_list	955136805b681f82
+0	413	1657486537533055435	build.ninja	a1894922f564fc0e
+0	45	1648743972210565161	CMakeFiles/test_product_list.dir/product_list.c.o	79ab4b437079d9d5
+0	38	1648744028366837537	CMakeFiles/test_bid_stack.dir/test_bid_stack.c.o	6cb31ecb8fc38535
+1	52	1648743866030114615	CMakeFiles/test_product_list.dir/test_product_list.c.o	32ee693f723e484f
+47	73	1651760882621897224	../bin/main	54829665b1588fdb
+45	1026	1651759024686634902	CMakeFiles/main.dir/main.c.o	d3494a6dd7177542
+4	98	1648743896750234733	CMakeFiles/test_bid_stack.dir/bid_stack.c.o	83106df5553c1884

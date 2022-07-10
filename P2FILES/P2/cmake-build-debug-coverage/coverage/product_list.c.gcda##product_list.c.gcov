@@ -1,0 +1,215 @@
+        -:    0:Source:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/product_list.c
+        -:    0:Graph:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/product_list.c.gcno
+        -:    0:Data:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/product_list.c.gcda
+        -:    0:Runs:2
+        -:    1:/*
+        -:    2: * TITLE: PROGRAMMING II LABS
+        -:    3: * SUBTITLE: Practical 1
+        -:    4: * AUTHOR 1: Jose Manuel Amestoy Lopez LOGIN 1: manuel.amestoy@udc.es
+        -:    5: * AUTHOR 2: Xabier Dieguez Gomez LOGIN 2: xabier.diguezg@udc.es
+        -:    6: * GROUP: 4.1
+        -:    7: * DATE: 04 / 03 / 22
+        -:    8: */
+        -:    9:
+        -:   10:#include "product_list.h"
+        -:   11:
+        -:   12:
+        -:   13:
+        -:   14:/*Codigo*/
+        -:   15:
+function createEmptyList called 2 returned 100% blocks executed 100%
+        2:   16:void createEmptyList (tList* L){
+        2:   17:    *L = LNULL;                                                 //Crea una lista usando la variable que defina a esta como un puntero a nulo
+        2:   18:}
+        -:   19:
+function createNode called 0 returned 0% blocks executed 0%
+    #####:   20:bool createNode(tPosL* p){
+    #####:   21:    *p = malloc(sizeof(struct tNode));                      //Reserva memoria para el nodo
+    #####:   22:    return *p != LNULL;                                          //Devuelve true si la posicion no es nula y false en caso contrario
+    %%%%%:   22-block  0
+        -:   23:}
+        -:   24:
+function insertItem called 8 returned 100% blocks executed 80%
+        8:   25:bool insertItem(tItemL i, tList * L){
+        8:   26:    tPosL q = malloc(sizeof(struct tNode)), s = malloc(sizeof(struct tNode));
+        -:   27:
+        8:   28:    if (q == LNULL) {
+        8:   28-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 8
+    #####:   29:        return false;
+    %%%%%:   29-block  0
+        -:   30:    } else {
+        8:   31:        q->data = i; //Actualiza q
+        8:   32:        q->next = LNULL;
+        8:   33:        if (*L == LNULL) //Verifica que la lista está vacía
+        8:   33-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 6
+        2:   34:            *L = q;
+        2:   34-block  0
+        6:   35:        else if (strcmp(i.productId, (*L)->data.productId) < 0) { //Inserta al final de la lista
+        6:   35-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6
+    #####:   36:            q->next = *L;
+    #####:   37:            *L = q;
+    %%%%%:   37-block  0
+        -:   38:        } else {
+        6:   39:            if (s == LNULL) { //Inserta en el principio de la lista
+        6:   39-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6
+    #####:   40:                return LNULL;
+    %%%%%:   40-block  0
+        -:   41:            } else { //Inserta en una posición intermedia de la lista
+        6:   42:                s = *L;
+       12:   43:                while (s->next != NULL && strcmp(i.productId, s->next->data.productId) > 0){
+        6:   43-block  0
+       12:   43-block  1
+branch  0 taken 6 (fallthrough)
+branch  1 taken 6
+        6:   43-block  2
+branch  2 taken 6
+branch  3 taken 0 (fallthrough)
+        6:   44:                    s = s->next;
+        6:   44-block  0
+        -:   45:                }
+        6:   46:                q ->next = s->next;
+        6:   47:                s->next = q;
+        -:   48:            }
+        6:   49:            return true;
+        6:   49-block  0
+        -:   50:        }
+        -:   51:    }
+        2:   52:}
+        2:   52-block  0
+        -:   53:
+function first called 12 returned 100% blocks executed 100%
+       12:   54:tPosL first(tList L){
+       12:   55:    return L;                                       //Devuelve el primer elemento de la lista que corresponde a la variable apuntada por la lista
+       12:   55-block  0
+        -:   56:}
+        -:   57:
+function next called 44 returned 100% blocks executed 100%
+       44:   58:tPosL next(tPosL p, tList L){
+       44:   59:    return p->next;                                 //Usando el campo next devuelve el siguiente elemento al dado
+       44:   59-block  0
+        -:   60:}
+        -:   61:
+function last called 0 returned 0% blocks executed 0%
+    #####:   62:tPosL last(tList L){
+        -:   63:    tPosL p;                                        //Variable para determinar la posicion del ultimo elemento de la lista
+        -:   64:
+    #####:   65:    for(p=L; p->next != LNULL ; p=p->next);         //Recorre la lista hasta no encontrar mas elementos y devuelve el ultimo que encontro
+    %%%%%:   65-block  0
+    %%%%%:   65-block  1
+    %%%%%:   65-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   66:    return p;
+    %%%%%:   66-block  0
+        -:   67:}
+        -:   68:
+function previous called 0 returned 0% blocks executed 0%
+    #####:   69:tPosL previous(tPosL p, tList L){
+        -:   70:    tPosL q;                                        //Variable para determinar la posicion del anterior elemento al dado
+        -:   71:
+    #####:   72:    if(p==L)                                        //Si la posicion correponde al primer elemento de la lista devuelve nulo
+    %%%%%:   72-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   73:        return LNULL;
+    %%%%%:   73-block  0
+        -:   74:    else{
+    #####:   75:        for(q=L; q->next != p ; q = q->next);       //Recorre la lista buscando el elemento dado y devuelve la posicion del elemento al que le corresponde el mismo next con el elemento que damos
+    %%%%%:   75-block  0
+    %%%%%:   75-block  1
+    %%%%%:   75-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   76:        return q;
+    %%%%%:   76-block  0
+        -:   77:    }
+        -:   78:}
+        -:   79:
+function isEmptyList called 10 returned 100% blocks executed 100%
+       10:   80:bool isEmptyList(tList L){
+       10:   81:    return L == LNULL;                              //Comprueba si el primer elemento de la lista es nulo para determinar si esta vacia
+       10:   81-block  0
+        -:   82:}
+        -:   83:
+function getItem called 62 returned 100% blocks executed 100%
+       62:   84:tItemL getItem(tPosL p, tList L){
+       62:   85:    return p->data;                                 //Devuelve el elemento de la posicion dada
+       62:   85-block  0
+        -:   86:}
+        -:   87:
+function findItem called 16 returned 100% blocks executed 100%
+       16:   88:tPosL findItem (tProductId d, tList L){
+        -:   89:    tPosL p;                                        //Variable para determinar la posicion del elemento dado en la lista
+        -:   90:
+       40:   91:    for (p = L ; (p != LNULL) && (strcmp(p->data.productId, d) != 0); p = p ->next);    //Recorre la lista comparando cada elemento con el dado
+       16:   91-block  0
+       24:   91-block  1
+       40:   91-block  2
+branch  0 taken 32 (fallthrough)
+branch  1 taken 8
+       32:   91-block  3
+branch  2 taken 24
+branch  3 taken 8 (fallthrough)
+       16:   92:    return p;
+       16:   92-block  0
+        -:   93:}
+        -:   94:
+function updateItem called 6 returned 100% blocks executed 100%
+        6:   95:void updateItem(tItemL d, tPosL p, tList*L){
+        6:   96:    p->data = d;                                    //Cambia el elemento de la posicion dada con el elemento dado en la cabecera
+        6:   97:}
+        -:   98:
+function deleteAtPosition called 2 returned 100% blocks executed 44%
+        2:   99:void deleteAtPosition(tPosL p, tList* L) {
+        -:  100:    tPosL q;                                        //Variable auxiliar que usaremos para recorrer la lista
+        2:  101:    if (p == *L) {                                     //Si la posicion coincide con el primer elemento de la lisa elimina el siguiente
+        2:  101-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  102:        *L = (*L)->next;
+    %%%%%:  102-block  0
+        2:  103:    } else if (p->next == LNULL) {                      //Si el siguiente elemento no tiene continuidad entra en el if
+        2:  103-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  104:        for (q = *L; q->next != p; q = q->next);       //Recorre la lista en busca de la posicion dada
+    %%%%%:  104-block  0
+    %%%%%:  104-block  1
+    %%%%%:  104-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:  105:        q->next = LNULL;                            //Elimina el elemento de la posicion dada a trave de su anterior elemento
+    %%%%%:  105-block  0
+        -:  106:    } else {
+        2:  107:        q = p->next;                                //Intercambia los elementos p q para asi borrar q y luego p
+        2:  108:        p->data = q->data;
+        2:  109:        p->next = q->next;
+        2:  110:        p = q;
+        2:  110-block  0
+        -:  111:    }
+        2:  112:    free(p);
+        2:  113:}
+        -:  114:
+function deleteList called 0 returned 0% blocks executed 0%
+    #####:  115:void deleteList(tList* L){
+        -:  116:    tPosL p;                                        //Variable auxiliar para usar la lista
+        -:  117:
+    #####:  118:    while(*L != LNULL){                             //Comprueba si la lista esta vacia
+    %%%%%:  118-block  0
+    %%%%%:  118-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:  119:        p=*L;                                       //Usa p para almacenar la lista
+    #####:  120:        *L =(*L)->next;                             //Elimina el siguiente elemento de la lista haciendolo coincidir con su anterior
+    #####:  121:        free(p);                                //Libera la variable p para reusarla en caso necesario o eliminarla del todo
+    %%%%%:  121-block  0
+        -:  122:    }
+    #####:  123:}

@@ -32,6 +32,8 @@ int main() {
     item1.bidCounter = 0;
 
 
+
+
     /* create */
     createEmptyList(&list);
     print_list(list);

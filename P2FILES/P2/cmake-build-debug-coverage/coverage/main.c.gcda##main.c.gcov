@@ -1,0 +1,564 @@
+        -:    0:Source:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/main.c
+        -:    0:Graph:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/main.c.gcno
+        -:    0:Data:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/main.c.gcda
+        -:    0:Runs:2
+        -:    1:/*
+        -:    2: * TITLE: PROGRAMMING II LABS
+        -:    3: * SUBTITLE: Practical 2
+        -:    4: * AUTHOR 1: ***************************** LOGIN 1: **********
+        -:    5: * AUTHOR 2: ***************************** LOGIN 2: **********
+        -:    6: * GROUP: *.*
+        -:    7: * DATE: ** / ** / **
+        -:    8: */
+        -:    9:
+        -:   10:#include <stdio.h>
+        -:   11:#include <stdlib.h>
+        -:   12:#include <string.h>
+        -:   13:#include "types.h"
+        -:   14:#include "product_list.h"
+        -:   15:#include "bid_stack.h"
+        -:   16:
+        -:   17:#define MAX_BUFFER 255
+        -:   18:
+function Categoria called 8 returned 100% blocks executed 100%
+        8:   19:char * Categoria(tItemL producto) {
+        8:   20:    if (producto.productCategory == book) {
+        8:   20-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 4
+        4:   21:        return "book";
+        4:   21-block  0
+        -:   22:    }
+        4:   23:    return "painting";
+        4:   23-block  0
+        -:   24:}
+        -:   25:
+        -:   26:/*
+        -:   27: *Objetivo: Añadir un nuevo elemento a la lista
+        -:   28: *Entradas: La lista, el nombre del producto, el vendedor, la categoria y el precio
+        -:   29: *Postcondiciones: La lista tiene un nuevo elemento
+        -:   30: */
+function New called 8 returned 100% blocks executed 90%
+        8:   31:void New(tList *L, char *product, char *seller, char *category, char *price) {
+        -:   32:    tItemL productL;                                                                                               //Creamos el producto y le asignamos nombre, vendedor, categoria y precio
+        8:   33:    strcpy(productL.productId, product);
+        8:   34:    strcpy(productL.seller, seller);
+        8:   35:    productL.bidCounter = 0;                                                                                       //Inicializamos el numero de pujas a 0
+        8:   36:    if (strcmp(category, "book") == 0) {
+        8:   36-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 4
+        4:   37:        productL.productCategory = book;
+        4:   37-block  0
+        -:   38:    } else {
+        4:   39:        productL.productCategory = painting;
+        4:   39-block  0
+        -:   40:    }
+        8:   41:    productL.productPrice = atof(price);
+        -:   42:    tStack s;
+        8:   43:    createEmptyStack(&s);
+        8:   43-block  0
+call    0 returned 8
+        8:   44:    productL.bidStack = s;
+        8:   45:    if (findItem(product, *L) == LNULL) {                                                                    //Si el elemento no esta en la lista devuelve error
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0
+        8:   46:        insertItem(productL, L);                                                                     //Introduce el producto en la lista de productos
+        8:   46-block  0
+call    0 returned 8
+        8:   47:        printf("* New: product %s seller %s category %s price %s\n", product, seller, category, price);
+call    0 returned 8
+        -:   48:    }else{
+    #####:   49:        printf("+ Error: New not possible\n");
+    %%%%%:   49-block  0
+call    0 never executed
+        -:   50:    }
+        8:   51:}
+        -:   52:
+        -:   53:/*Objetivo: Printear todos los elementos de la lista y una tabla con el total de cada categoria y el precio medio de esta
+        -:   54: *Entradas: La lista a printear
+        -:   55: */
+function Stats called 10 returned 100% blocks executed 95%
+       10:   56:void Stats(tList *L) {
+        -:   57:    tItemL producto, tItemIncremented;
+        -:   58:    tPosL pos;
+        -:   59:    char categoria[9];
+       10:   60:    int cntlibros = 0, cntcuadros = 0, cntbids = 0;                                                                //Contadores de libros y cuadros
+       10:   61:    float precioLibros = 0, precioPromedioLibros = 0;
+       10:   62:    float precioCuadros = 0, precioPromedioCuadros = 0;
+        -:   63:
+       10:   64:    if (isEmptyList(*L)) {                                                                                    //Comprueba si la lista esta vacia, en ese caso da error
+       10:   64-block  0
+call    0 returned 10
+branch  1 taken 0 (fallthrough)
+branch  2 taken 10
+    #####:   65:        printf("+ Error: Stats not possible\n");
+    %%%%%:   65-block  0
+call    0 never executed
+        -:   66:    } else {
+       10:   67:        pos = first(*L);//Empezamos en el primer elemento de la lista
+       10:   67-block  0
+call    0 returned 10
+       10:   68:        tItemIncremented = getItem(pos, *L);
+call    0 returned 10
+       48:   69:        while (pos != LNULL) {                                                                                   //Mientras la posicion no sea nula ejecuta
+       48:   69-block  0
+branch  0 taken 38
+branch  1 taken 10 (fallthrough)
+       38:   70:            producto = getItem(pos, *L);
+       38:   70-block  0
+call    0 returned 38
+       38:   71:            if (producto.productCategory == book) {
+branch  0 taken 18 (fallthrough)
+branch  1 taken 20
+       18:   72:                precioLibros += producto.productPrice;
+       18:   73:                strcpy(categoria, "book");
+       18:   74:                cntlibros++;
+       18:   74-block  0
+        -:   75:            } else {
+       20:   76:                precioCuadros += producto.productPrice;
+       20:   77:                strcpy(categoria, "painting");
+       20:   78:                cntcuadros++;
+       20:   78-block  0
+        -:   79:            }
+       38:   80:            if (producto.bidCounter == 0) {
+       38:   80-block  0
+branch  0 taken 20 (fallthrough)
+branch  1 taken 18
+       20:   81:                printf("Product %s seller %s category %s price %.2f. No bids\n",
+       20:   82:                       producto.productId, producto.seller, categoria, producto.productPrice);
+       20:   82-block  0
+call    0 returned 20
+        -:   83:            } else {
+       18:   84:                printf("Product %s seller %s category %s price %.2f bids %d top bidder %s\n",
+       18:   85:                       producto.productId, producto.seller, categoria, producto.productPrice, producto.bidCounter, producto.bidStack.data->bidder);
+       18:   85-block  0
+call    0 returned 18
+       18:   86:                cntbids++;
+        -:   87:                //RR = precioActual/precioOriginal*100
+       18:   88:                if (peek(producto.bidStack).productPrice/producto.productPrice > peek(tItemIncremented.bidStack).productPrice/tItemIncremented.productPrice){
+call    0 returned 18
+call    1 returned 18
+branch  2 taken 6 (fallthrough)
+branch  3 taken 12
+        6:   89:                    tItemIncremented = producto;
+        6:   89-block  0
+        -:   90:                }
+        -:   91:            }
+       38:   92:            if (cntlibros != 0) {
+       38:   92-block  0
+branch  0 taken 18 (fallthrough)
+branch  1 taken 20
+       18:   93:                precioPromedioLibros = (float)precioLibros/(float)cntlibros;                                     //Calcula el precio promedio de los libros
+       18:   93-block  0
+        -:   94:            }else{
+       20:   95:                precioPromedioLibros = 0;
+       20:   95-block  0
+        -:   96:            }
+       38:   97:            if (cntcuadros != 0) {
+       38:   97-block  0
+branch  0 taken 38 (fallthrough)
+branch  1 taken 0
+       38:   98:                precioPromedioCuadros = (float)precioCuadros/(float)cntcuadros;                                  //Calcula el precio promedio de los cuadros
+       38:   98-block  0
+        -:   99:            }else{
+    #####:  100:                precioPromedioCuadros = 0;
+    %%%%%:  100-block  0
+        -:  101:            }
+       38:  102:            pos = next(pos, *L);                                                                           //Pasa al siguiente elemento de la lista
+       38:  102-block  0
+call    0 returned 38
+        -:  103:        }                                                                                                        //Cuando acabe de recorrer la lista, imprime una tabla con los datos de esta
+       10:  104:        printf("\nCategory  Products    Price  Average\n");
+       10:  104-block  0
+call    0 returned 10
+       10:  105:        printf("Book      %8d %8.2f %8.2f\n", cntlibros, precioLibros, precioPromedioLibros);
+call    0 returned 10
+       10:  106:        printf("Painting  %8d %8.2f %8.2f\n", cntcuadros, precioCuadros, precioPromedioCuadros);
+call    0 returned 10
+       10:  107:        if (cntbids == 0) {
+branch  0 taken 2 (fallthrough)
+branch  1 taken 8
+        2:  108:            printf("Top bid not possible\n");
+        2:  108-block  0
+call    0 returned 2
+        -:  109:        } else {
+        8:  110:            if (tItemIncremented.productCategory == book) {
+        8:  110-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 4
+        4:  111:                strcpy(categoria, "book");
+        4:  111-block  0
+        -:  112:            } else {
+        4:  113:                strcpy(categoria, "painting");
+        4:  113-block  0
+        -:  114:            }
+       24:  115:            printf("Top bid: Product %s seller %s category %s price %.2f bidder %s top price %.2f increase %.2f%%\n",
+        8:  116:                   tItemIncremented.productId, tItemIncremented.seller, categoria,tItemIncremented.productPrice, peek(tItemIncremented.bidStack).bidder, peek(tItemIncremented.bidStack).productPrice,
+call    0 returned 8
+call    1 returned 8
+        8:  117:                   (peek(tItemIncremented.bidStack).productPrice/tItemIncremented.productPrice-1)*100);
+        8:  117-block  0
+call    0 returned 8
+call    1 returned 8
+        -:  118:        }
+        -:  119:    }
+       10:  120:}
+        -:  121:
+        -:  122:/*
+        -:  123: *Objetivo: Pujar por un productor de la lista, cambiando su precio
+        -:  124: *Entradas: La lista, el producto y el precio
+        -:  125: *Postcondicion: El precio del elemento y el numero de pujas por este aumenta
+        -:  126: */
+function Bid called 6 returned 100% blocks executed 83%
+        6:  127:void Bid(tList *L, char *productId, char *seller ,char *price) {
+        -:  128:    tItemL producto;
+        -:  129:    tItemS p;
+        -:  130:    tPosL pos;
+        6:  131:    pos = findItem(productId, *L);                                                                         //Busca el elemento en la lista por su nombre
+        6:  131-block  0
+call    0 returned 6
+        6:  132:    float precio = atof(price);
+        6:  133:    if (pos == LNULL) {                                                                                         //Si el elemento no esta en la lista da error
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6
+    #####:  134:        printf("+ Error: Bid not possible\n");
+    %%%%%:  134-block  0
+call    0 never executed
+        -:  135:    }  else {
+        6:  136:        producto = getItem(pos, *L);                                                                      //Asigna al producto los datos proporcionados
+        6:  136-block  0
+call    0 returned 6
+        6:  137:        if (producto.productPrice >= precio || (strcmp(producto.seller, seller) == 0)) {                        //Comprueba que el vendedor no sea el comprador y que el precio no sea menor o igual al original
+branch  0 taken 6 (fallthrough)
+branch  1 taken 0
+        6:  137-block  0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 6
+    #####:  138:            printf("+ Error: Bid not possible\n");
+    %%%%%:  138-block  0
+call    0 never executed
+        -:  139:        } else {
+        6:  140:            strcpy(p.bidder, seller);
+        6:  141:            p.productPrice = atof(price);
+        6:  142:            producto.bidCounter++;                                                                              //Aumenta en uno el contador de pujas del producto
+        6:  143:            push(p, &producto.bidStack);
+        6:  143-block  0
+call    0 returned 6
+        6:  144:            updateItem(producto, pos, L);
+call    0 returned 6
+        6:  145:            printf("* Bid: product %s bidder %s category %s price %.2f bids  %d\n",
+call    0 returned 6
+        6:  146:                   producto.productId, producto.bidStack.data->bidder, Categoria(producto), producto.bidStack.data->productPrice, producto.bidCounter); //Imprime el resultado de pujar
+call    0 returned 6
+        -:  147:        }
+        -:  148:    }
+        6:  149:}
+        -:  150:
+        -:  151:/*
+        -:  152: *Objetivo: Eliminar un producto de la lista
+        -:  153: *Entradas: La lista y el elemento a eliminar
+        -:  154: *Postcondicion: El producto eliminado desaparece de la lista
+        -:  155: */
+function Delete called 2 returned 100% blocks executed 69%
+        2:  156:void Delete(tList *L, char *productId, bool printDelete) {
+        -:  157:    tItemL producto;
+        -:  158:    tPosL pos;
+        2:  159:    pos = findItem(productId,*L);                                                                     //Busca el elemento en la lista, si no esta da error
+        2:  159-block  0
+call    0 returned 2
+        2:  160:    if (pos == LNULL) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  161:        printf("+ Error: Delete not possible\n");
+    %%%%%:  161-block  0
+call    0 never executed
+        -:  162:    } else {
+        2:  163:        producto = getItem(pos, *L);
+        2:  163-block  0
+call    0 returned 2
+        2:  164:        while (!isEmptyStack(producto.bidStack)) {
+        2:  164-block  0
+call    0 returned 2
+branch  1 taken 0
+branch  2 taken 2 (fallthrough)
+    #####:  165:            pop(&producto.bidStack);
+    %%%%%:  165-block  0
+call    0 never executed
+        -:  166:        }
+        2:  167:        deleteAtPosition(pos, L);                                                                        //Elimina el elemento de la lista
+        2:  167-block  0
+call    0 returned 2
+        2:  168:        if (printDelete) {
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  169:            printf("* Delete: product %s seller %s category %s price %.2f bids %d\n",
+call    0 never executed
+    #####:  170:                   producto.productId, producto.seller, Categoria(producto), producto.productPrice, producto.bidCounter);
+    %%%%%:  170-block  0
+call    0 never executed
+        -:  171:        }
+        -:  172:    }
+        2:  173:}
+        -:  174:
+function Award called 0 returned 0% blocks executed 0%
+    #####:  175:void Award(tList *L, char *productId) {
+        -:  176:    tItemL producto;
+    #####:  177:    tPosL pos = findItem(productId, *L);
+    %%%%%:  177-block  0
+call    0 never executed
+    #####:  178:    if (pos == LNULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:  179:        printf("+ Error: Award not possible\n");
+    %%%%%:  179-block  0
+call    0 never executed
+        -:  180:    } else {
+    #####:  181:        producto = getItem(pos, *L);
+    %%%%%:  181-block  0
+call    0 never executed
+    #####:  182:        if (isEmptyStack(producto.bidStack)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:  183:            printf("+ Error: Award not possible\n");
+    %%%%%:  183-block  0
+call    0 never executed
+        -:  184:        } else {
+    #####:  185:            printf("* Award: product %s bidder %s category %s price %.2f\n",
+call    0 never executed
+    #####:  186:                   producto.productId, peek(producto.bidStack).bidder, Categoria(producto), peek(producto.bidStack).productPrice);
+    %%%%%:  186-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:  187:            Delete(L, productId, false);
+call    0 never executed
+        -:  188:        }
+        -:  189:    }
+    #####:  190:}
+        -:  191:
+function Withdraw called 0 returned 0% blocks executed 0%
+    #####:  192:void Withdraw(tList *L, char *productId) {
+        -:  193:    tItemL producto;
+    #####:  194:    tPosL pos = findItem(productId, *L);
+    %%%%%:  194-block  0
+call    0 never executed
+    #####:  195:    if (pos == LNULL) {
+branch  0 never executed
+branch  1 never executed
+    #####:  196:        printf("+ Error: Withdraw not possible\n");
+    %%%%%:  196-block  0
+call    0 never executed
+        -:  197:    } else {
+    #####:  198:        producto = getItem(pos, *L);
+    %%%%%:  198-block  0
+call    0 never executed
+    #####:  199:        if ((isEmptyStack(producto.bidStack)) && (peek(producto.bidStack).bidder == producto.seller)) {
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:  199-block  0
+call    3 never executed
+        -:  200:            printf("+ Error: Withdraw not possible\n");
+        -:  201:        } else {
+    #####:  202:            printf("* Withdraw: product %s bidder %s category %s price %.2f bids  %d\n",
+call    0 never executed
+    #####:  203:                   producto.productId, peek(producto.bidStack).bidder, Categoria(producto), peek(producto.bidStack).productPrice,
+    %%%%%:  203-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:  204:                   producto.bidCounter);
+    #####:  205:            pop(&producto.bidStack);
+call    0 never executed
+    #####:  206:            producto.bidCounter--;
+        -:  207:        }
+        -:  208:    }
+    #####:  209:}
+        -:  210:
+function Remove called 2 returned 100% blocks executed 100%
+        2:  211:void Remove (tList *L) {
+        -:  212:    tItemL producto;
+        2:  213:    tPosL pos = first(*L);
+        2:  213-block  0
+call    0 returned 2
+        8:  214:    while (pos != LNULL) {
+        8:  214-block  0
+branch  0 taken 6
+branch  1 taken 2 (fallthrough)
+        6:  215:        producto = getItem(pos, *L);
+        6:  215-block  0
+call    0 returned 6
+        6:  216:        if (isEmptyStack(producto.bidStack)) {
+call    0 returned 6
+branch  1 taken 2 (fallthrough)
+branch  2 taken 4
+        2:  217:            printf("Removing product %s seller %s category %s price %.2f bids %d\n",
+call    0 returned 2
+        2:  218:                   producto.productId, producto.seller, Categoria(producto), producto.productPrice, producto.bidCounter);
+        2:  218-block  0
+call    0 returned 2
+        2:  219:            Delete(L, producto.productId, false);
+call    0 returned 2
+        -:  220:        }
+        6:  221:        pos = next(pos, *L);
+        6:  221-block  0
+call    0 returned 6
+        -:  222:    }
+        2:  223:}
+        -:  224:
+function processCommand called 26 returned 100% blocks executed 60%
+       26:  225:void processCommand(char *commandNumber, char command, char *param1, char *param2, char *param3, char *param4, tList *L) {
+       26:  226:    printf("********************\n");
+       26:  226-block  0
+call    0 returned 26
+       26:  227:    switch (command) {
+branch  0 taken 8
+branch  1 taken 10
+branch  2 taken 6
+branch  3 taken 0
+branch  4 taken 0
+branch  5 taken 0
+branch  6 taken 2
+branch  7 taken 0
+        8:  228:        case 'N':
+        8:  229:            printf("%s %c: product %s seller %s category %s price %s\n", commandNumber, command, param1, param2, param3, param4);
+        8:  229-block  0
+call    0 returned 8
+        8:  230:            New(L, param1, param2, param3, param4);
+call    0 returned 8
+        8:  231:            break;
+       10:  232:        case 'S':
+       10:  233:            printf("%s %c\n", commandNumber, command);
+       10:  233-block  0
+call    0 returned 10
+       10:  234:            Stats(L);
+call    0 returned 10
+       10:  235:            break;
+        6:  236:        case 'B':
+        6:  237:            printf("%s %c: product %s bidder %s price %s\n", commandNumber, command, param1, param2, param3);
+        6:  237-block  0
+call    0 returned 6
+        6:  238:            Bid(L, param1, param2, param3);
+call    0 returned 6
+        6:  239:            break;
+    #####:  240:        case 'D':
+    #####:  241:            printf("%s %c: product %s\n", commandNumber, command, param1);
+    %%%%%:  241-block  0
+call    0 never executed
+    #####:  242:            Delete(L, param1, true);
+call    0 never executed
+    #####:  243:            break;
+    #####:  244:        case 'A':
+    #####:  245:            printf("%s %c: product %s\n", commandNumber, command, param1);
+    %%%%%:  245-block  0
+call    0 never executed
+    #####:  246:            Award(L, param1);
+call    0 never executed
+    #####:  247:            break;
+    #####:  248:        case 'W':
+    #####:  249:            printf("%s %c: product %s bidder %s\n", commandNumber, command, param1, param2);
+    %%%%%:  249-block  0
+call    0 never executed
+    #####:  250:            Withdraw(L, param1);
+call    0 never executed
+    #####:  251:            break;
+        2:  252:        case 'R':
+        2:  253:            printf("%s %c\n", commandNumber, command);
+        2:  253-block  0
+call    0 returned 2
+        2:  254:            Remove(L);
+call    0 returned 2
+        2:  255:            break;
+    #####:  256:        default:
+    #####:  257:            break;
+    %%%%%:  257-block  0
+        -:  258:    }
+       26:  259:}
+        -:  260:
+function readTasks called 2 returned 100% blocks executed 94%
+        2:  261:void readTasks(char *filename) {
+        2:  262:    FILE *f = NULL;
+        -:  263:    char *commandNumber, *command, *param1, *param2, *param3, *param4;
+        2:  264:    const char delimiters[] = " \n\r";
+        -:  265:    char buffer[MAX_BUFFER];
+        -:  266:    tList L;
+        2:  267:    createEmptyList(&L);
+        2:  267-block  0
+call    0 returned 2
+        -:  268:
+        2:  269:    f = fopen(filename, "r");
+call    0 returned 2
+        -:  270:
+        2:  271:    if (f != NULL) {
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        -:  272:
+       28:  273:        while (fgets(buffer, MAX_BUFFER, f)) {
+        2:  273-block  0
+       28:  273-block  1
+call    0 returned 28
+branch  1 taken 26
+branch  2 taken 2 (fallthrough)
+       26:  274:            commandNumber = strtok(buffer, delimiters);
+       26:  274-block  0
+call    0 returned 26
+       26:  275:            command = strtok(NULL, delimiters);
+call    0 returned 26
+       26:  276:            param1 = strtok(NULL, delimiters);
+call    0 returned 26
+       26:  277:            param2 = strtok(NULL, delimiters);
+call    0 returned 26
+       26:  278:            param3 = strtok(NULL, delimiters);
+call    0 returned 26
+       26:  279:            param4 = strtok(NULL, delimiters);
+call    0 returned 26
+        -:  280:
+       26:  281:            processCommand(commandNumber, command[0], param1, param2, param3, param4, &L);
+call    0 returned 26
+        -:  282:        }
+        -:  283:
+        2:  284:        fclose(f);
+        2:  284-block  0
+call    0 returned 2
+        -:  285:
+        -:  286:    } else {
+    #####:  287:        printf("Cannot open file %s.\n", filename);
+    %%%%%:  287-block  0
+call    0 never executed
+        -:  288:    }
+        2:  289:}
+        -:  290:
+        -:  291:
+function main called 2 returned 100% blocks executed 83%
+        2:  292:int main(int nargs, char **args) {
+        -:  293:
+        2:  294:    char *file_name = "new.txt";
+        -:  295:
+        2:  296:    if (nargs > 1) {
+        2:  296-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 2
+    #####:  297:        file_name = args[1];
+    %%%%%:  297-block  0
+        -:  298:    } else {
+        -:  299:        #ifdef INPUT_FILE
+        2:  300:        file_name = INPUT_FILE;
+        2:  300-block  0
+        -:  301:        #endif
+        -:  302:    }
+        -:  303:
+        2:  304:    readTasks(file_name);
+        2:  304-block  0
+call    0 returned 2
+        -:  305:
+        2:  306:    return 0;
+        -:  307:}
+        -:  308:
+        -:  309:
+        -:  310:
+        -:  311:
+        -:  312:
+        -:  313:

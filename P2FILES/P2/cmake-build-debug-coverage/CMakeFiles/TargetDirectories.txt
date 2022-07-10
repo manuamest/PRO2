@@ -1,0 +1,5 @@
+/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/test_bid_stack.dir
+/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/test_product_list.dir
+/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir
+/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "P2",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "main::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main-Debug-a93dfe632d0f2b485981.json",
+					"name" : "main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_bid_stack::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_bid_stack-Debug-0e060163299cfcd8acbb.json",
+					"name" : "test_bid_stack",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_product_list::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_product_list-Debug-f442a19674702fc7e066.json",
+					"name" : "test_product_list",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/manuamest/Descargas/Pr\u00e1ctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage",
+		"source" : "/home/manuamest/Descargas/Pr\u00e1ctica 2  Practical 2-20220331/espanol/CLion/P2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

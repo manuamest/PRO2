@@ -1,0 +1,52 @@
+        -:    0:Source:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/bid_stack.c
+        -:    0:Graph:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/bid_stack.c.gcno
+        -:    0:Data:/home/manuamest/Descargas/Práctica 2  Practical 2-20220331/espanol/CLion/P2/cmake-build-debug-coverage/CMakeFiles/main.dir/bid_stack.c.gcda
+        -:    0:Runs:2
+        -:    1:/*
+        -:    2: * TITLE: PROGRAMMING II LABS
+        -:    3: * SUBTITLE: Practical 2
+        -:    4: * AUTHOR 1: ***************************** LOGIN 1: **********
+        -:    5: * AUTHOR 2: ***************************** LOGIN 2: **********
+        -:    6: * GROUP: *.*
+        -:    7: * DATE: ** / ** / **
+        -:    8: */
+        -:    9:
+        -:   10:#include "bid_stack.h"
+        -:   11:#include "stdlib.h"
+        -:   12:
+function createEmptyStack called 8 returned 100% blocks executed 100%
+        8:   13:void createEmptyStack(tStack *s) {
+        8:   14:    s->top = SNULL;
+        8:   15:}
+        -:   16:
+function push called 6 returned 100% blocks executed 75%
+        6:   17:bool push(tItemS d, tStack *s) {
+        6:   18:    if (s->top == SMAX - 1) {
+        6:   18-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 6
+    #####:   19:        return false;
+    %%%%%:   19-block  0
+        -:   20:    } else {
+        6:   21:        s->top++;
+        6:   22:        s->data[s->top] = d;
+        -:   23:    }
+        6:   24:    return true;
+        6:   24-block  0
+        -:   25:}
+        -:   26:
+function pop called 0 returned 0% blocks executed 0%
+    #####:   27:void pop (tStack *s) {
+    #####:   28:    s->top--;
+    #####:   29:}
+        -:   30:
+function peek called 60 returned 100% blocks executed 100%
+       60:   31:tItemS peek (tStack s) {
+       60:   32:    return s.data[s.top];
+       60:   32-block  0
+        -:   33:}
+function isEmptyStack called 8 returned 100% blocks executed 100%
+        8:   34:bool isEmptyStack (tStack s) {
+        8:   35:    return (s.top == SNULL);
+        8:   35-block  0
+        -:   36:}
