@@ -1,0 +1,8 @@
+# ninja log v5
+0	29	1657484644048870637	CMakeFiles/main.dir/dynamic_list.c.o	d6cd1a7e65a3e0e1
+0	236	1657484644244872112	CMakeFiles/main.dir/main.c.o	23566a6f6be25362
+237	300	1657484644320872683	../bin/main	f4900f1f0dd70df0
+1	370	1657486921866791658	CMakeFiles/main.dir/dynamic_list.c.o	d6cd1a7e65a3e0e1
+2	134	1657487254533470712	CMakeFiles/main.dir/dynamic_list.c.o	d6cd1a7e65a3e0e1
+1	367	1657487254765472812	CMakeFiles/main.dir/main.c.o	23566a6f6be25362
+367	1288	1657487255685481143	../bin/main	f4900f1f0dd70df0
