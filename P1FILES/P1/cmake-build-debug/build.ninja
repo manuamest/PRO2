@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug/
+cmake_ninja_workdir = /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target main
 
@@ -49,7 +49,7 @@ cmake_ninja_workdir = /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PR
 
 build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
 
-build CMakeFiles/main.dir/main.c.o: C_COMPILER__main_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P3/main.c || cmake_object_order_depends_target_main
+build CMakeFiles/main.dir/main.c.o: C_COMPILER__main_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P1FILES/P1/main.c || cmake_object_order_depends_target_main
   DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
   DEP_FILE = CMakeFiles/main.dir/main.c.o.d
   FLAGS = -g -Wall -Wextra -std=gnu99
@@ -58,7 +58,7 @@ build CMakeFiles/main.dir/main.c.o: C_COMPILER__main_Debug /home/manuamest/Escri
   TARGET_COMPILE_PDB = CMakeFiles/main.dir/
   TARGET_PDB = ../bin/main.pdb
 
-build CMakeFiles/main.dir/dynamic_list.c.o: C_COMPILER__main_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P3/dynamic_list.c || cmake_object_order_depends_target_main
+build CMakeFiles/main.dir/dynamic_list.c.o: C_COMPILER__main_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P1FILES/P1/dynamic_list.c || cmake_object_order_depends_target_main
   DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
   DEP_FILE = CMakeFiles/main.dir/dynamic_list.c.o.d
   FLAGS = -g -Wall -Wextra -std=gnu99
@@ -93,7 +93,7 @@ build ../bin/main: C_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.c.o 
 
 build cmake_object_order_depends_target_test_lists: phony || CMakeFiles/test_lists.dir
 
-build CMakeFiles/test_lists.dir/test.c.o: C_COMPILER__test_lists_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P3/test.c || cmake_object_order_depends_target_test_lists
+build CMakeFiles/test_lists.dir/test.c.o: C_COMPILER__test_lists_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P1FILES/P1/test.c || cmake_object_order_depends_target_test_lists
   DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
   DEP_FILE = CMakeFiles/test_lists.dir/test.c.o.d
   FLAGS = -g -Wall -Wextra -std=gnu99
@@ -102,7 +102,7 @@ build CMakeFiles/test_lists.dir/test.c.o: C_COMPILER__test_lists_Debug /home/man
   TARGET_COMPILE_PDB = CMakeFiles/test_lists.dir/
   TARGET_PDB = ../bin/test_lists.pdb
 
-build CMakeFiles/test_lists.dir/dynamic_list.c.o: C_COMPILER__test_lists_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P3/dynamic_list.c || cmake_object_order_depends_target_test_lists
+build CMakeFiles/test_lists.dir/dynamic_list.c.o: C_COMPILER__test_lists_Debug /home/manuamest/Escritorio/SEGUNDO/SEGUNDO$ CUATRI/PRO2/PRACTICAS/P1FILES/P1/dynamic_list.c || cmake_object_order_depends_target_test_lists
   DEFINES = -DDYNAMIC_LIST -DINPUT_FILE=\"new.txt\"
   DEP_FILE = CMakeFiles/test_lists.dir/dynamic_list.c.o.d
   FLAGS = -g -Wall -Wextra -std=gnu99
@@ -133,7 +133,7 @@ build ../bin/test_lists: C_EXECUTABLE_LINKER__test_lists_Debug CMakeFiles/test_l
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug" && /snap/clion/198/bin/cmake/linux/bin/ccmake -S"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3" -B"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug"
+  COMMAND = cd "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug" && /snap/clion/198/bin/cmake/linux/bin/ccmake -S"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1" -B"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -145,7 +145,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug" && /snap/clion/198/bin/cmake/linux/bin/cmake --regenerate-during-build -S"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3" -B"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug"
+  COMMAND = cd "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug" && /snap/clion/198/bin/cmake/linux/bin/cmake --regenerate-during-build -S"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1" -B"/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -165,7 +165,7 @@ build test_lists: phony ../bin/test_lists
 # =============================================================================
 
 #############################################
-# Folder: /home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug
+# Folder: /home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug
 
 build all: phony ../bin/main ../bin/test_lists
 

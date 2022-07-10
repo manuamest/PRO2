@@ -12,10 +12,26 @@ bool createNode(tPosL *p) //Equivalent to (tNode **p) pointer to pointer that's 
     return *p != LNULL;
 }
 
-bool insertItem(tItemL d, tPosL p, tList *L)
+tPosL findPosition(tList L, tItemL d)
 {
-    tPosL q, r; //q--> element we want to add
-    //r-->element prior to q
+
+    tPosL p, tmp;
+
+    p = L;
+    tmp = L;
+    while ((p != LNULL) &&
+           (p->data.productId < d.productId))
+    { //Continue while data is ordered
+        tmp = p;
+        p = p->next;
+    }
+    return tmp;
+}
+
+bool insertItem(tItemL d, tList *L)
+{
+    tPosL q, p;
+
     if (!createNode(&q))
     {
         return false;
@@ -24,26 +40,20 @@ bool insertItem(tItemL d, tPosL p, tList *L)
     {
         q->data = d;
         q->next = LNULL;
+
         if (isEmptyList(*L))
         {
             *L = q;
         }
-        else if (p == LNULL)
-        { //If given position is NULL, add the element at the end of list
-            for (r = *L; r->next != LNULL; r = r->next)
-                ; //We move to the end of the list
-            r->next = q;
-        }
-        else if (p == *L)
+        else if (d.productId < (*L)->data.productId)
         { // insert at the top of the list (first element)
-            q->next = p;
+
+            q->next = *L;
             *L = q;
         }
         else
-        { ///insert in intermediate position
-
-            q->data = p->data; // data exchange
-            p->data = d;
+        { //Find right position
+            p = findPosition(*L, d);
             q->next = p->next;
             p->next = q;
         }

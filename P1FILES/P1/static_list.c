@@ -4,20 +4,21 @@ bool isEmptyList(tList L) { return L.lastPos == LNULL; }
 
 void createEmptyList(tList *L) { L->lastPos = LNULL; }
 
-bool insertItem(tItemL d, tPosL p, tList *L) {
+bool insertItem(tItemL d, tList *L) {
     tPosL i;
 
     if (L->lastPos == MAX - 1) //Check if list is full
         return false;
     else {
-        L->lastPos++;
-        if (p == LNULL) { // Insert at the end
+        if (isEmptyList(*L) || d > L->data[L->lastPos]) { // Insert at the end
+            L->lastPos++;
             L->data[L->lastPos] = d;
         } else {
-            for (i = L->lastPos; i > p;i--) //moves the elements one position forward
-                L->data[i] = L->data[i - 1];
-
-            L->data[p] = d;
+            L->lastPos++;
+            for (i = L->lastPos; (i > 0) && (d < L->data[i - 1]); i--) {
+                L->data[i] = L->data[i - 1]; //moves the elements one position forwar
+            }
+            L->data[i] = d; //Finally insert element in right position
         }
         return true;
     }
@@ -39,16 +40,18 @@ void updateItem(tItemL d, tPosL p, tList *L) { L->data[p] = d; }
 tPosL findItem(tItemL d, tList L) {
     tPosL p;
 
-    if (isEmptyList(L)) {
+    if (isEmptyList(L)){
+        return LNULL;
+    }else if ((d < L.data[0]) || (d > L.data[L.lastPos])) { //If the item is not in the list
         return LNULL;
     } else {
-        for (p = 0; (p < L.lastPos) && (L.data[p] != d); p++)
+        for (p = 0; (p < L.lastPos) && (L.data[p] < d); p++)
             ;
-
         if (L.data[p] == d) {
             return p;
-        } else
+        } else {
             return LNULL;
+        }
     }
 }
 

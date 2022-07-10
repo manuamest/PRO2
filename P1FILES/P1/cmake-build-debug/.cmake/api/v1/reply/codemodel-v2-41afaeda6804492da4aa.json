@@ -41,14 +41,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "main::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main-Debug-bb26733de634f35dbaf4.json",
+					"jsonFile" : "target-main-Debug-c7a214762b78070d4aba.json",
 					"name" : "main",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "test_lists::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_lists-Debug-dc356b4edeb2f4f7105d.json",
+					"jsonFile" : "target-test_lists-Debug-5b398677368bcd414acf.json",
 					"name" : "test_lists",
 					"projectIndex" : 0
 				}
@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug",
-		"source" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3"
+		"build" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug",
+		"source" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1"
 	},
 	"version" : 
 	{

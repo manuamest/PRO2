@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug"
+			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3"
+			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -995,7 +995,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug"
+			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug"
 		},
 		{
 			"name" : "P3_IS_TOP_LEVEL",
@@ -1019,7 +1019,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3"
+			"value" : "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1"
 		}
 	],
 	"kind" : "cache",

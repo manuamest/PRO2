@@ -1,4 +1,4 @@
-# Install script for directory: /home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3
+# Install script for directory: /home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P1FILES/P1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -30,7 +30,7 @@ void New(tList *L, char *product, char *seller, char *category, char *price) {
     productL.productPrice = atof(price);
 
     if (findItem(product, *L) == LNULL) {                                                                    //Si el elemento no esta en la lista devuelve error
-        insertItem(productL, LNULL, L);                                                                     //Introduce el producto en la lista de productos
+        insertItem(productL, L);                                                                     //Introduce el producto en la lista de productos
         printf("* New: product %s seller %s category %s price %s\n", product, seller, category, price);
     }else{
         printf("+ Error: New not possible\n");

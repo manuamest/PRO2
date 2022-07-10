@@ -18,7 +18,7 @@ typedef struct {
 /* Function prototypes */
 
 void createEmptyList(tList* L);
-bool insertItem(tItemL d, tPosL p, tList* L);
+bool insertItem(tItemL d, tList* L);
 bool copyList(tList L, tList* M);
 void updateItem(tItemL d , tPosL p, tList* L);
 void deleteAtPosition(tPosL p, tList* L);

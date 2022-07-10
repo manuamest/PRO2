@@ -19,7 +19,8 @@ typedef tPosL tList;
 
 void createEmptyList(tList *L);
 bool createNode(tPosL* p);
-bool insertItem(tItemL d, tPosL p, tList *L);
+tPosL findPosition(tList L, tItemL d);
+bool insertItem(tItemL d, tList *L);
 void updateItem(tItemL d, tPosL p, tList* L);
 tPosL findItem(tProductId d,tList L);
 bool isEmptyList(tList L);
