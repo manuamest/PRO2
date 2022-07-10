@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/manuamest/Escritorio/SEGUNDO/SEGUNDO CUATRI/PRO2/PRACTICAS/P3 Select CMakeLists.txt
